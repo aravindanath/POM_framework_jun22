@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+
+    <parameter name="browser" value="chrome"/>
+    <test verbose="2" preserve-order="true"
+          name="Regression Suite on chrome">
+
+        <classes>
+            <class name="testscripts.TC_LF_001"/>
+
+            <class name="testscripts.TC_RF_001"/>
+
+        </classes>
+
+    </test>
+
+    <parameter name="browser" value="firefox"/>
+    <test verbose="2" preserve-order="true"
+          name="Regression Suite on firefox">
+
+        <classes>
+            <class name="testscripts.TC_LF_001"/>
+
+            <class name="testscripts.TC_RF_001"/>
+
+        </classes>
+
+    </test>
+
+</suite>

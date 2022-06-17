@@ -67,6 +67,10 @@ public class RegisterAccount extends BaseClass{
         continueButton.click();
     }
 
+    public void agreePrivacyPolicy(){
+        checkBox.click();
+    }
+
 
 
 }

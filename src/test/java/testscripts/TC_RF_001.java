@@ -18,6 +18,7 @@ public class TC_RF_001 extends BaseTest{
         RegisterAccount ra = new RegisterAccount(driver);
         ra.navigateToRegPage();
         ra.enterMandatoryField(fn,ln,email,tel,pw,cpw);
+        ra.agreePrivacyPolicy();
         ra.clickOnContinueButton();
 
 

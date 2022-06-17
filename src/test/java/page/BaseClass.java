@@ -2,6 +2,7 @@ package page;
 
 import com.github.javafaker.Faker;
 import org.apache.commons.io.FileUtils;
+import org.ini4j.Ini;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
@@ -133,6 +134,7 @@ public class BaseClass {
 
         Faker faker = new Faker(new Locale("en-IND"));
         String fn = faker.name().firstName();
+        System.out.println("FirstName: "+ fn);
         return fn;
     }
 
@@ -140,6 +142,7 @@ public class BaseClass {
 
         Faker faker = new Faker(new Locale("en-IND"));
         String fn = faker.name().lastName();
+        System.out.println("LastName: "+ fn);
         return fn;
     }
 
@@ -147,14 +150,33 @@ public class BaseClass {
 
         Faker faker = new Faker(new Locale("en-IND"));
         String fn = faker.name().fullName();
+        System.out.println("EmailID: "+ fn);
         return fn.trim().replace(" ","").replace(".","")+"@testmail.com";
     }
 
     public static String generateMobileNumber(){
         Faker faker = new Faker(new Locale("en-IND"));
         String fn = faker.number().digits(10);
+        System.out.println("Mobile Number: "+ fn);
         return fn;
     }
+
+
+    public static String getValue(String title,String key){
+        String path =   System.getProperty("user.dir")+ File.separator+"Data.ini";
+        String val = null;
+        try {
+            FileInputStream fis = new FileInputStream(path);
+            Ini ini = new Ini();
+            ini.load(fis);
+           val = ini.get(title,key);
+        }catch (Exception e){
+
+        }
+        return val;
+    }
+
+
 
 
 }
